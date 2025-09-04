@@ -35,19 +35,32 @@ return [
     | Username / Email
     |--------------------------------------------------------------------------
     |
-    | This value defines which model field should be considered as your
+    | This value defines which model attribute should be considered as your
     | application's "username" field. Typically, this might be the email
-    | address of the users instead of the username, depending on your
-    | application and its authentication requirements.
+    | address of the users but you are free to change this value here.
     |
-    | If you're using the default authentication controllers, this field
-    | is used as the login identifier. When using the Fortify middleware
-    | for authentication, this field's value is passed to the log in
-    | method as the username parameter.
+    | Out of the box, Fortify expects forgot password and reset password
+    | requests to have a field named 'email'. If the application uses
+    | another name for the field you may define it below as needed.
     |
     */
 
     'username' => 'email',
+
+    'email' => 'email',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Lowercase Usernames
+    |--------------------------------------------------------------------------
+    |
+    | This value defines whether usernames should be lowercased before saving
+    | them in the database, as some database system string fields are case
+    | sensitive. You may disable this for your application if necessary.
+    |
+    */
+
+    'lowercase_usernames' => true,
 
     /*
     |--------------------------------------------------------------------------
@@ -56,11 +69,11 @@ return [
     |
     | Here you may configure the path where users will get redirected during
     | authentication or password reset when the operations are successful
-    | and the user is authenticated.
+    | and the user is authenticated. You are free to change this value.
     |
     */
 
-    'home' => '/home',
+    'home' => '/',
 
     /*
     |--------------------------------------------------------------------------
@@ -92,6 +105,35 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Rate Limiting
+    |--------------------------------------------------------------------------
+    |
+    | By default, Fortify will throttle logins to five requests per minute for
+    | every email and IP address combination. However, if you would like to
+    | specify a custom rate limiter to call then you may specify it here.
+    |
+    */
+
+    'limiters' => [
+        'login' => 'login',
+        'two-factor' => 'two-factor',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Register View Routes
+    |--------------------------------------------------------------------------
+    |
+    | Here you may specify if the routes returning views should be disabled as
+    | you may not need them when building your own application. This may be
+    | especially true if you're writing a custom single-page application.
+    |
+    */
+
+    'views' => false,
+
+    /*
+    |--------------------------------------------------------------------------
     | Features
     |--------------------------------------------------------------------------
     |
@@ -110,7 +152,12 @@ return [
         Features::twoFactorAuthentication([
             'confirm' => true,
             'confirmPassword' => true,
+            'window' => 10,
         ]),
     ],
 
+    'redirects' => [
+        'login' => '/',
+        'logout' => '/login',
+    ],
 ];

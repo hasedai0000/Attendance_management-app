@@ -7,7 +7,7 @@ return [
     | Stateful Domains
     |--------------------------------------------------------------------------
     |
-    | Requests to the following domains / hosts will receive stateful API
+    | Requests from the following domains / hosts will receive stateful API
     | authentication cookies. Typically, these should include your local
     | and production domains which access your API via a frontend SPA.
     |
@@ -39,8 +39,8 @@ return [
     |--------------------------------------------------------------------------
     |
     | This value controls the number of minutes until an issued token will be
-    | considered expired. This will override any values set in the token's
-    | "expires_at" attribute, but first-party sessions are not affected.
+    | considered expired. If this value is null, personal access tokens do
+    | not expire. This won't tweak the lifetime of first-party sessions.
     |
     */
 

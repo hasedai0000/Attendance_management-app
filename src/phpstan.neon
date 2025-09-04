@@ -1,20 +1,14 @@
 parameters:
-    level: 5
+    level: 6
     paths:
         - app
         - config
         - database
-        - resources
         - routes
-        - tests
     excludePaths:
         - app/Console/Kernel.php
         - app/Exceptions/Handler.php
-        - app/Http/Kernel.php
-        - app/Providers/AppServiceProvider.php
-        - app/Providers/AuthServiceProvider.php
-        - app/Providers/BroadcastServiceProvider.php
-        - app/Providers/EventServiceProvider.php
-        - app/Providers/RouteServiceProvider.php
-        - app/Providers/FortifyServiceProvider.php
-    checkMissingIterableValueType: false 
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    ignoreErrors:
+        - '#Call to an undefined method Illuminate\\Database\\Eloquent\\Builder::#' 

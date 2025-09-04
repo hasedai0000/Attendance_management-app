@@ -1,0 +1,528 @@
+/* 勤怠管理システム用スタイル */
+
+.attendance-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.attendance-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.attendance-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.current-time {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.attendance-status {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.status-display p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.status-off_duty {
+    color: #6c757d;
+}
+.status-working {
+    color: #28a745;
+}
+.status-break {
+    color: #ffc107;
+}
+.status-finished {
+    color: #dc3545;
+}
+
+.attendance-actions {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.action-form {
+    display: inline-block;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #1e7e34;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+}
+
+.attendance-info {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-item label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.info-item span {
+    color: #333;
+}
+
+/* 勤怠一覧画面 */
+.attendance-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.attendance-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.month-navigation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.current-month {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.attendance-table table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-table th,
+.attendance-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.attendance-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #495057;
+}
+
+.attendance-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.no-data {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* 勤怠詳細画面 */
+.attendance-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.attendance-detail-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.attendance-detail-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.date {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.info-section {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.info-section h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 5px;
+}
+
+.break-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.break-item {
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+}
+
+.attendance-edit {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.break-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.break-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.break-input-row input {
+    flex: 1;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* 修正申請一覧画面 */
+.requests-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.requests-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.requests-header h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.requests-tabs {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.tab-header {
+    display: flex;
+    background-color: #f8f9fa;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #6c757d;
+    transition: all 0.3s;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.tab-button:hover:not(.active) {
+    background-color: #e9ecef;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.requests-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.requests-table th,
+.requests-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.requests-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #495057;
+}
+
+/* 管理者画面 */
+.admin-daily-attendance-container,
+.admin-staff-list-container,
+.admin-monthly-attendance-container,
+.admin-attendance-detail-container,
+.admin-request-list-container,
+.admin-request-detail-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.daily-attendance-header,
+.staff-list-header,
+.monthly-attendance-header,
+.attendance-detail-header,
+.request-list-header,
+.request-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.date-navigation,
+.month-navigation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.current-date,
+.current-month {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.export-action {
+    margin-left: auto;
+}
+
+.staff-name {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.applicant,
+.status {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* アラート */
+.alert {
+    padding: 15px;
+    margin: 20px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .attendance-container,
+    .attendance-list-container,
+    .attendance-detail-container,
+    .requests-container,
+    .admin-daily-attendance-container,
+    .admin-staff-list-container,
+    .admin-monthly-attendance-container,
+    .admin-attendance-detail-container,
+    .admin-request-list-container,
+    .admin-request-detail-container {
+        padding: 15px;
+    }
+
+    .attendance-list-header,
+    .daily-attendance-header,
+    .staff-list-header,
+    .monthly-attendance-header,
+    .attendance-detail-header,
+    .request-list-header,
+    .request-detail-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .break-input-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tab-header {
+        flex-direction: column;
+    }
+
+    .tab-button {
+        border-bottom: 1px solid #dee2e6;
+    }
+}

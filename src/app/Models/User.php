@@ -6,51 +6,103 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
+use Illuminate\Support\Str;
+use Laravel\Cashier\Billable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
- use HasApiTokens, HasFactory, Notifiable, TwoFactorAuthenticatable;
+    use Billable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
- /**
-  * The attributes that are mass assignable.
-  *
-  * @var array
-  */
- protected $fillable = [
-  'name',
-  'email',
-  'password',
- ];
+    protected $table = 'users';
+    protected $keyType = 'string';
+    public $incrementing = false;
 
- /**
-  * The attributes that should be hidden for arrays.
-  *
-  * @var array
-  */
- protected $hidden = [
-  'password',
-  'remember_token',
-  'two_factor_recovery_codes',
-  'two_factor_secret',
- ];
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'is_admin',
+    ];
 
- /**
-  * The attributes that should be cast to native types.
-  *
-  * @var array
-  */
- protected $casts = [
-  'email_verified_at' => 'datetime',
- ];
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
 
- /**
-  * The accessors to append to the model's array form.
-  *
-  * @var array
-  */
- protected $appends = [
-  'profile_photo_url',
- ];
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'is_admin' => 'boolean',
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            if (empty($model->id)) {
+                $model->id = Str::uuid();
+            }
+        });
+    }
+
+    public function profile(): HasOne
+    {
+        return $this->hasOne(Profile::class);
+    }
+
+    public function items(): HasMany
+    {
+        return $this->hasMany(Item::class);
+    }
+
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function purchases(): HasMany
+    {
+        return $this->hasMany(Purchase::class);
+    }
+
+    public function attendances(): HasMany
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
+    public function attendanceRequests(): HasMany
+    {
+        return $this->hasMany(AttendanceRequest::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->is_admin;
+    }
 }
