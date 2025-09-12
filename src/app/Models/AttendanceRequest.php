@@ -6,10 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Str;
 
 class AttendanceRequest extends Model
 {
  use HasFactory;
+
+ protected $keyType = 'string';
+ public $incrementing = false;
 
  protected $fillable = [
   'attendance_id',
@@ -27,6 +31,17 @@ class AttendanceRequest extends Model
   'requested_clock_out' => 'datetime',
   'approved_at' => 'datetime',
  ];
+
+ protected static function boot()
+ {
+  parent::boot();
+
+  static::creating(function ($model) {
+   if (empty($model->id)) {
+    $model->id = Str::uuid();
+   }
+  });
+ }
 
  public function attendance(): BelongsTo
  {
