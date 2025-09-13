@@ -1,49 +1,52 @@
 @extends('layouts.app')
 
-@section('title', 'ログイン')
+@section('css')
+  <link rel="stylesheet" href="{{ asset('css/auth/auth.css') }}">
+@endsection
 
 @section('content')
-  <div class="auth-container">
-    <div class="auth-form">
-      <h2>ログイン</h2>
-
-      <form method="POST" action="{{ route('login') }}" class="login-form">
-        @csrf
-
-        <div class="form-group">
-          <label for="email">メールアドレス</label>
-          <input type="email" id="email" name="email" value="{{ old('email') }}" required autofocus>
-          @error('email')
-            <span class="error-message">{{ $message }}</span>
-          @enderror
+  <div class="auth-form__content">
+    <div class="auth-form__heading">
+      <h2 class="auth-form__heading-title">ログイン</h2>
+    </div>
+    <form class="form" action="/login" method="post">
+      @csrf
+      <div class="form__group">
+        <div class="form__group-title">
+          <span class="form__label--item">メールアドレス</span>
         </div>
-
-        <div class="form-group">
-          <label for="password">パスワード</label>
-          <input type="password" id="password" name="password" required>
-          @error('password')
-            <span class="error-message">{{ $message }}</span>
-          @enderror
+        <div class="form__group-content">
+          <div class="form__input--text">
+            <input type="email" name="email" value="{{ old('email') }}" />
+          </div>
+          <div class="form__error">
+            @error('email')
+              {{ $message }}
+            @enderror
+          </div>
         </div>
-
-        <div class="form-group">
-          <label>
-            <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-            ログイン状態を保持する
-          </label>
+      </div>
+      <div class="form__group">
+        <div class="form__group-title">
+          <span class="form__label--item">パスワード</span>
         </div>
-
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary">ログイン</button>
+        <div class="form__group-content">
+          <div class="form__input--text">
+            <input type="password" name="password" />
+          </div>
+          <div class="form__error">
+            @error('password')
+              {{ $message }}
+            @enderror
+          </div>
         </div>
-
-        <div class="auth-links">
-          <a href="{{ route('register') }}">会員登録はこちら</a>
-          @if (Route::has('password.request'))
-            <a href="{{ route('password.request') }}">パスワードを忘れた方はこちら</a>
-          @endif
-        </div>
-      </form>
+      </div>
+      <div class="form__button">
+        <button class="form__button-submit" type="submit">ログインする</button>
+      </div>
+    </form>
+    <div class="auth__link">
+      <a class="auth__button-submit" href="/register">会員登録はこちら</a>
     </div>
   </div>
 @endsection

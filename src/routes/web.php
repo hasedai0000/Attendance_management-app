@@ -22,6 +22,9 @@ Route::middleware('guest')->group(function () {
     // ログイン
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
     Route::post('/login', [AuthController::class, 'login']);
+    // 管理者ログイン
+    Route::get('/admin/login', [AuthController::class, 'showAdminLogin'])->name('admin.login');
+    Route::post('/admin/login', [AuthController::class, 'adminLogin']);
 
     // 新規登録
     Route::get('/register', [AuthController::class, 'showRegister'])->name('register');

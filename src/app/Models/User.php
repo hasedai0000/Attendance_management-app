@@ -2,6 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Profile;
+use App\Models\Item;
+use App\Models\Like;
+use App\Models\Comment;
+use App\Models\Purchase;
+use App\Models\Attendance;
+use App\Models\AttendanceRequest;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -64,31 +71,6 @@ class User extends Authenticatable implements MustVerifyEmail
                 $model->id = Str::uuid();
             }
         });
-    }
-
-    public function profile(): HasOne
-    {
-        return $this->hasOne(Profile::class);
-    }
-
-    public function items(): HasMany
-    {
-        return $this->hasMany(Item::class);
-    }
-
-    public function likes(): HasMany
-    {
-        return $this->hasMany(Like::class);
-    }
-
-    public function comments(): HasMany
-    {
-        return $this->hasMany(Comment::class);
-    }
-
-    public function purchases(): HasMany
-    {
-        return $this->hasMany(Purchase::class);
     }
 
     public function attendances(): HasMany
