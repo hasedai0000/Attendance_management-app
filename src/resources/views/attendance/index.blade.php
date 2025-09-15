@@ -55,7 +55,7 @@
               </td>
               <td>{{ $attendance->note ?? '' }}</td>
               <td>
-                <a href="{{ route('attendance.show', $attendance->date->format('Y-m-d')) }}" class="btn btn-small">詳細</a>
+                <a href="{{ route('attendance.detail', $attendance->date->format('Y-m-d')) }}" class="btn btn-small">詳細</a>
               </td>
             </tr>
           @empty

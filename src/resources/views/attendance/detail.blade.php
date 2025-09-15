@@ -9,6 +9,18 @@
       <p class="date">{{ $date }}</p>
     </div>
 
+    @if (session('success'))
+      <div class="alert alert-success">
+        {{ session('success') }}
+      </div>
+    @endif
+
+    @if (session('error'))
+      <div class="alert alert-error">
+        {{ session('error') }}
+      </div>
+    @endif
+
     <div class="attendance-info">
       <div class="info-section">
         <h3>基本情報</h3>
