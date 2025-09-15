@@ -147,6 +147,10 @@ class AdminController extends Controller
    ->orderBy('approved_at', 'desc')
    ->get();
 
+  // デバッグ情報を追加
+  \Log::info('Admin requestList - Pending count: ' . $pendingRequests->count());
+  \Log::info('Admin requestList - Approved count: ' . $approvedRequests->count());
+
   return view('admin.request-list', compact('pendingRequests', 'approvedRequests'));
  }
 

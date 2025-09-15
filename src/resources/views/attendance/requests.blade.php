@@ -41,7 +41,7 @@
                       @endif
                     </td>
                     <td>
-                      <a href="{{ route('attendance.show', $request->attendance->date->format('Y-m-d')) }}"
+                      <a href="{{ route('attendance.detail', $request->attendance->date->format('Y-m-d')) }}"
                         class="btn btn-small">詳細</a>
                     </td>
                   </tr>
@@ -83,7 +83,7 @@
                       @endif
                     </td>
                     <td>
-                      <a href="{{ route('attendance.show', $request->attendance->date->format('Y-m-d')) }}"
+                      <a href="{{ route('attendance.detail', $request->attendance->date->format('Y-m-d')) }}"
                         class="btn btn-small">詳細</a>
                     </td>
                   </tr>

@@ -66,6 +66,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // 勤怠一覧・詳細
     Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
+    Route::get('/attendance/{date}/detail', [AttendanceController::class, 'detail'])->name('attendance.detail');
     Route::put('/attendance/{date}', [AttendanceController::class, 'update'])->name('attendance.update');
 
     // 修正申請一覧

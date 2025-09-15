@@ -32,7 +32,7 @@
                 <a class="header-nav__link" href="/admin/staff">スタッフ一覧</a>
               </li>
               <li class="header-nav__item">
-                <a class="header-nav__link" href="/requests">申請一覧</a>
+                <a class="header-nav__link" href="/admin/requests">申請一覧</a>
               </li>
             @else
               <li class="header-nav__item">
@@ -42,7 +42,7 @@
                 <a class="header-nav__link" href="/attendance">勤怠一覧</a>
               </li>
               <li class="header-nav__item">
-                <a class="header-nav__link" href="/admin/requests">申請</a>
+                <a class="header-nav__link" href="/requests">申請</a>
               </li>
             @endif
             <li class="header-nav__item">

@@ -16,6 +16,8 @@
 
       <div id="pending-tab" class="tab-content active">
         <h3>承認待ち</h3>
+        <!-- デバッグ情報 -->
+        <p>Debug: Pending requests count = {{ $pendingRequests->count() }}</p>
         @if ($pendingRequests->count() > 0)
           <div class="request-table">
             <table>

@@ -196,4 +196,19 @@ class AttendanceController extends Controller
 
   return view('attendance.requests', compact('pendingRequests', 'approvedRequests'));
  }
+
+ public function detail($date)
+ {
+  $user = Auth::user();
+  $attendance = $user->attendances()
+   ->where('date', $date)
+   ->with(['breaks'])
+   ->first();
+
+  if (!$attendance) {
+   return back()->with('error', '勤怠レコードが見つかりません。');
+  }
+
+  return view('attendance.detail', compact('attendance', 'date'));
+ }
 }

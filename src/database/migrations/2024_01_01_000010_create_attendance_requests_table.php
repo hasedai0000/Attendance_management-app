@@ -17,8 +17,8 @@ class CreateAttendanceRequestsTable extends Migration
    $table->uuid('id')->primary();
    $table->uuid('attendance_id');
    $table->uuid('user_id');
-   $table->time('requested_clock_in')->nullable();
-   $table->time('requested_clock_out')->nullable();
+   $table->datetime('requested_clock_in')->nullable();
+   $table->datetime('requested_clock_out')->nullable();
    $table->text('requested_note')->nullable();
    $table->enum('status', ['pending', 'approved'])->default('pending');
    $table->timestamp('approved_at')->nullable();
