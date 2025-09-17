@@ -75,8 +75,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 // 管理者用ルート
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
-    // 日次勤怠一覧
-    Route::get('/daily-attendance/{date?}', [AdminController::class, 'dailyAttendance'])->name('daily-attendance');
+    // 勤怠一覧
+    Route::get('/attendance/list/{date?}', [AdminController::class, 'attendanceList'])->name('attendance-list');
 
     // スタッフ一覧
     Route::get('/staff', [AdminController::class, 'staffList'])->name('staff-list');

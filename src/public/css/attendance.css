@@ -184,7 +184,6 @@
 .attendance-table th,
 .attendance-table td {
     padding: 12px;
-    text-align: left;
     border-bottom: 1px solid #dee2e6;
 }
 
@@ -385,7 +384,6 @@
 .requests-table th,
 .requests-table td {
     padding: 12px;
-    text-align: left;
     border-bottom: 1px solid #dee2e6;
 }
 

@@ -68,6 +68,35 @@ class AuthController extends Controller
     }
 
     /**
+     * 管理者ログイン処理
+     *
+     * @param LoginRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function adminLogin(LoginRequest $request): RedirectResponse
+    {
+        try {
+            $validatedData = $request->validated();
+
+            if (Auth::attempt($validatedData, $request->boolean('remember'))) {
+                $request->session()->regenerate();
+
+                // 管理者権限をチェック
+                if (Auth::user()->isAdmin()) {
+                    return redirect()->intended('/admin/attendance/list');
+                } else {
+                    Auth::logout();
+                    return redirect()->back()->withErrors(['email' => '管理者権限がありません。']);
+                }
+            }
+
+            return redirect()->back()->withErrors(['email' => 'メールアドレスまたはパスワードが間違っています。']);
+        } catch (ValidationException $e) {
+            return redirect()->back()->withErrors($e->errors());
+        }
+    }
+
+    /**
      * ログアウト処理
      */
     public function logout(Request $request): RedirectResponse

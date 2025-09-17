@@ -1,0 +1,267 @@
+/* 管理者勤怠一覧画面専用スタイル */
+
+/* 全体のコンテナ */
+.admin-attendance-list {
+    min-height: calc(100vh - 80px);
+    background-color: #f0eff2;
+    padding: 40px 0;
+}
+
+/* 日付選択エリア */
+.date-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.date-selector__container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 900px;
+    height: 60px;
+}
+
+.date-selector__button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: #737373;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    transition: color 0.2s ease;
+}
+
+.date-selector__button:hover {
+    color: #000000;
+}
+
+.date-selector__icon {
+    width: 20px;
+    height: 15px;
+}
+
+.date-selector__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.15em;
+}
+
+.date-selector__current {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+.date-selector__calendar-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.date-selector__date {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: #000000;
+}
+
+/* タイトル */
+.attendance-title {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.attendance-title__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #000000;
+    margin: 0;
+}
+
+/* テーブルコンテナ */
+.attendance-table-container {
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.attendance-table-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+}
+
+/* テーブル */
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.attendance-table__header {
+    background-color: #ffffff;
+    height: 31px;
+}
+
+.attendance-table__header-cell {
+    padding: 6px 36px;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #737373;
+    letter-spacing: 0.15em;
+    border-bottom: 3px solid #e1e1e1;
+    height: 31px;
+    vertical-align: middle;
+}
+
+.attendance-table__body {
+    background-color: #ffffff;
+}
+
+.attendance-table__row {
+    border-bottom: 2px solid #e1e1e1;
+    height: 33px;
+}
+
+.attendance-table__row:last-child {
+    border-bottom: none;
+}
+
+.attendance-table__cell {
+    padding: 7px 36px;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #737373;
+    letter-spacing: 0.15em;
+    text-align: center;
+}
+
+.attendance-table__cell--name {
+    text-align: center;
+}
+
+.attendance-table__cell--no-data {
+    text-align: center;
+    color: #999999;
+    font-style: italic;
+    padding: 40px;
+}
+
+.attendance-table__detail-link {
+    color: #000000;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    transition: color 0.2s ease;
+}
+
+.attendance-table__detail-link:hover {
+    color: #737373;
+    text-decoration: underline;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .admin-attendance-list {
+        padding: 20px 0;
+    }
+
+    .date-selector__container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+        width: auto;
+        height: auto;
+    }
+
+    .date-selector__current {
+        order: -1;
+        padding: 10px 0;
+    }
+
+    .attendance-title__text {
+        font-size: 24px;
+    }
+
+    .attendance-table-container {
+        padding: 0 15px;
+    }
+
+    .attendance-table__header-cell,
+    .attendance-table__cell {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .attendance-table__header-cell:first-child,
+    .attendance-table__cell:first-child {
+        padding-left: 20px;
+    }
+
+    .attendance-table__header-cell:last-child,
+    .attendance-table__cell:last-child {
+        padding-right: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .date-selector__container {
+        padding: 10px 15px;
+    }
+
+    .date-selector__button {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .date-selector__text {
+        font-size: 14px;
+    }
+
+    .date-selector__date {
+        font-size: 18px;
+    }
+
+    .attendance-title__text {
+        font-size: 20px;
+    }
+
+    .attendance-table__header-cell,
+    .attendance-table__cell {
+        padding: 10px 15px;
+        font-size: 12px;
+    }
+
+    .attendance-table__header-cell:first-child,
+    .attendance-table__cell:first-child {
+        padding-left: 15px;
+    }
+
+    .attendance-table__header-cell:last-child,
+    .attendance-table__cell:last-child {
+        padding-right: 15px;
+    }
+}

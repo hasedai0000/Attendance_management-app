@@ -86,7 +86,7 @@
 
         <div class="form-actions">
           <button type="submit" class="btn btn-primary">修正</button>
-          <a href="{{ route('admin.daily-attendance', $attendance->date->format('Y-m-d')) }}"
+          <a href="{{ route('admin.attendance-list', $attendance->date->format('Y-m-d')) }}"
             class="btn btn-secondary">戻る</a>
         </div>
       </form>
