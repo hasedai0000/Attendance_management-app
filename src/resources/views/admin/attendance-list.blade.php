@@ -33,12 +33,6 @@
         </a>
       </div>
     </div>
-
-    <!-- タイトル -->
-    <div class="attendance-title">
-      <h1 class="attendance-title__text">{{ $date->format('Y年m月d日') }}の勤怠</h1>
-    </div>
-
     <!-- 勤怠一覧テーブル -->
     <div class="attendance-table-container">
       <div class="attendance-table-card">
